@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>거스름돈 계산기</title>
+    <title>원화 환전</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         input { padding: 10px; margin: 10px; }
@@ -13,11 +13,14 @@
     </style>
 </head>
 <body>
-    <h2>환전하려는 화폐종류를 선택하세요</h2>
-    <a href="">💲달러화</a>
-    <a href="">💲원화</a>
+    <h2>원화 환전</h2>
     
-
+    <form action="/" method="POST">
+        <label for="amount">원화 화폐단위로 분해할 금액 </label>
+        <input type="number" id="amount" name="amount" min="0" required>
+        <button type="submit">계산하기</button>
+    </form>
+        {{ render_html | default('') | safe }}
 
   
 </body>
