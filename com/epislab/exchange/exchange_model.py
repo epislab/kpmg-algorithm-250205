@@ -8,7 +8,7 @@ class ExchangeModel:
     result : str
 
     @property
-    def amount(self) -> str:
+    def amount(self) -> int:
         return self._amount
     @amount.setter
     def amount(self, amount):

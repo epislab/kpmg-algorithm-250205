@@ -8,7 +8,7 @@ class ExchangeService:
         pass
 
 
-    def get_unit_count(self, amount, won_list):
+    def get_unit_count(self, amount, won_list)->dict:
         money = amount
         won_dict = {}
         for won in won_list:
@@ -30,15 +30,16 @@ class ExchangeService:
                         WON_1000, WON_500, WON_100, WON_50, WON_10]
         
         
-        won_dict = self.get_unit_count(exchange.amount, won_list)
+        currency_dict = self.get_unit_count(exchange.amount, won_list)
         print("-------💰거스름돈💰-------")
-        for won, count in won_dict.items():
+        for won, count in currency_dict.items():
             print(f"{won}원: {count}개")
         print("-------끝-------")
-
-        temp = ''
-        for won, count in won_dict.items():
-            temp += f"{won}원: {count}개<br/>"
-
-        exchange.result = temp
+        exchange.result = self.get_currency_counts(currency_dict, currency_unit='원')
         return exchange
+
+    def get_currency_counts(self, currency_dict, currency_unit):
+        temp = ''
+        for currency, count in currency_dict.items():
+            temp += f"{currency}{currency_unit}: {count}개<br/>"
+        return temp
