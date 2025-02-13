@@ -5,6 +5,7 @@ from dataclasses import dataclass
 class ExchangeModel:
 
     amount: int
+    currency: str
     result : str
 
     @property
@@ -13,6 +14,13 @@ class ExchangeModel:
     @amount.setter
     def amount(self, amount):
         self._amount = amount
+
+    @property
+    def currency(self) -> int:
+        return self._currency
+    @currency.setter
+    def currency(self, currency):
+        self._currency = currency
 
 
     @property

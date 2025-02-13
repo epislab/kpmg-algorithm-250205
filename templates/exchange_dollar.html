@@ -13,10 +13,11 @@
     </style>
 </head>
 <body>
-    <h2>달러러 환전</h2>
+    <h2>달러 환전</h2>
     
-    <form action="/" method="POST">
+    <form action="/exchange" method="POST">
         <label for="amount">달러 화폐단위로 분해할 금액 </label>
+        <input type="text" id="currency" name="currency" min="0" value="USD" required>
         <input type="number" id="amount" name="amount" min="0" required>
         <button type="submit">계산하기</button>
     </form>
